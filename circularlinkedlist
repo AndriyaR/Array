@@ -1,0 +1,59 @@
+package ReverseArray;
+
+public class circularlinked {
+	Node last;
+	
+	class Node
+	{
+		int data;
+		Node next;
+		Node(int val)
+		{
+			data=val;
+			next=null;
+		}
+	}
+	
+	circularlinked()
+	{
+		last=null;
+	}
+	public void insertAtBegin(int val)
+	{
+		Node newnode=new Node(val);
+		if(last==null)
+		{  last=newnode;
+			last.next=last;
+		}
+		else
+		{   newnode.next=last;
+			last.next=newnode;
+		}}
+	public void display()
+	{
+		
+	 if (last == null) {
+	            System.out.println("The list is empty.");
+	            return;
+	        }
+
+	        Node temp = last.next;  
+	        
+	        for (Node current = temp; current != last; current = current.next) {
+	            System.out.println(current.data);
+	        }
+
+	       
+	        System.out.println(last.data);
+	    }
+
+	    public static void main(String[] args) {
+	        circularlinked list = new circularlinked();
+
+	        list.insertAtBegin(10);
+	        list.insertAtBegin(60);
+	        
+
+	        list.display();  
+	    }
+	}
